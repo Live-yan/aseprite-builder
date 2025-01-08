@@ -123,10 +123,6 @@ jobs:
       - name: Make portable zip
         working-directory: aseprite/build/bin
         run: echo '# This file is here so Aseprite behaves as a portable program' > aseprite.ini
-      - name: Copy OpenSSL DLLs
-        shell: bash
-        working-directory: aseprite/build/bin
-        run: cp "C:/Program Files/OpenSSL/bin/bcrypto-1.1-x64.dll" .
       - name: Create release
         working-directory: aseprite/build/bin
         run: 7z -tzip a Aseprite-${{ needs.create-release.outputs.release-tag }}-${{ runner.os }}.zip *
